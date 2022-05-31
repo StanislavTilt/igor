@@ -1,0 +1,713 @@
+{
+	"info": {
+		"_postman_id": "fb00c5af-8f9a-4c4c-b05f-240792ca6813",
+		"name": "igor test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10522838"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login attempt",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@mail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}api/auth/login-attempt",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"auth",
+								"login-attempt"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login attempt",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "test@mail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}api/auth/login-attempt",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"auth",
+										"login-attempt"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 31 May 2022 10:28:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=120, max=999"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user_id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login confirm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var api_url = pm.variables.get('API_URL');\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.globals.set(api_url + 'API_TOKEN', jsonData.token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "3f6147",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}api/auth/login-confirm",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"auth",
+								"login-confirm"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login confirm",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "b122ae",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}api/auth/login-confirm",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"auth",
+										"login-confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 31 May 2022 10:29:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=120, max=998"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"123123\",\n        \"email\": \"test@mail.com\",\n        \"token\": \"1|CdUcwQfKPX4oPTqjugJBF6UGcE6TWfauzV8gTsao\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "register attempt",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test1@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "namew122",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}api/auth/register-attempt",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"auth",
+								"register-attempt"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register attempt",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "test1@mail.com",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "namew122",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}api/auth/register-attempt",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"auth",
+										"register-attempt"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 31 May 2022 10:44:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=120, max=1000"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user_id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "register confirm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var api_url = pm.variables.get('API_URL');\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.globals.set(api_url + 'API_TOKEN', jsonData.data.token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "a69756",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}api/auth/register-confirm",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"auth",
+								"register-confirm"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register confirm",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "a69756",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}api/auth/register-confirm",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"auth",
+										"register-confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 31 May 2022 10:44:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=120, max=999"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"namew122\",\n        \"email\": \"test1@mail.com\",\n        \"token\": \"1|s7Y1PXmrXRep6hpfJVXcjVb1HlncNzdEy8M43hsZ\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}api/auth/logout",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}api/auth/logout",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 31 May 2022 10:57:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=120, max=971"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{API_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var api_url = pm.variables.get('API_URL');",
+					"var token = pm.globals.get(api_url + 'API_TOKEN');",
+					"pm.globals.set('API_TOKEN', token);"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://igortest/",
+			"type": "string"
+		}
+	]
+}
